@@ -67,11 +67,11 @@ def main():
         table.add_column("Avg Price")
 
         table.add_row(
-            str(response.get("orderId", "N/A")),
-            str(response.get("status", "N/A")),
+            str(response.get("orderId", response.get("algoId", "N/A"))),
+            str(response.get("status", response.get("algoStatus", "N/A"))),
             str(response.get("symbol", symbol)),
             str(response.get("side", side)),
-            str(response.get("origType", order_type)),
+            str(response.get("origType", response.get("orderType", order_type))),
             str(response.get("executedQty", "0")),
             str(response.get("avgPrice", "0"))
         )
