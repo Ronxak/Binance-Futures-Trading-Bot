@@ -25,7 +25,7 @@ def place_order(
         params["price"] = price
     elif order_type == "STOP_MARKET":
         endpoint = "/fapi/v1/algoOrder" # Switch to Algo Order endpoint
-        params["stopPrice"] = price   # Price at which the stop is triggered
+        params["triggerPrice"] = price   # Algo Order API expects 'triggerPrice' instead of 'stopPrice'
         params["algoType"] = "CONDITIONAL" # Required for algo orders
         
     return client.post(endpoint, **params)
