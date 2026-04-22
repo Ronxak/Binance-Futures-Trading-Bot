@@ -30,7 +30,7 @@ def main():
     parser.add_argument("--side", required=True, help="Order side (BUY or SELL)")
     parser.add_argument("--type", required=True, dest="order_type", help="Order type (MARKET, LIMIT, STOP_MARKET)")
     parser.add_argument("--quantity", required=True, help="Quantity to trade")
-    parser.add_argument("--price", help="Required for LIMIT and STOP_MARKET orders")
+    parser.add_argument("--price", "--stopPrice", dest="price", help="Required for LIMIT and STOP_MARKET orders")
     
     args = parser.parse_args()
     

@@ -24,6 +24,8 @@ def place_order(
         params["timeInForce"] = "GTC"  # Good Till Cancel required for LIMIT
         params["price"] = price
     elif order_type == "STOP_MARKET":
+        endpoint = "/fapi/v1/algoOrder" # Switch to Algo Order endpoint
         params["stopPrice"] = price   # Price at which the stop is triggered
+        params["algoType"] = "CONDITIONAL" # Required for algo orders
         
     return client.post(endpoint, **params)
